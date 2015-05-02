@@ -1,0 +1,22 @@
+" GVIM- (here instead of .gvimrc)
+if has('gui_running')
+    set guioptions-=T           " Remove the toolbar
+    set lines=40                " 40 lines of text instead of 24
+    if !exists("g:spf13_no_big_font")
+        if WINDOWS() && has("gui_running")
+            set guifont=Sauce_Code_Powerline:h10,Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
+        endif
+    endif
+else
+    if &term == 'xterm' || &term == 'screen'
+        set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+    endif
+    "set term=builtin_ansi       " Make arrow and other keys work
+endif
+
+" Fix gVim window resizing and repositioning when opening NERDTree or creating
+" a new vertical window. From http://stackoverflow.com/questions/13251522/why-does-gvim-resize-and-reposition-itself-after-some-actions
+set guioptions-=L
+
+"Execute current file based on filetype
+autocmd FileType python nnoremap <buffer> <F5> :!python %<cr>

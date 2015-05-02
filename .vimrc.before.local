@@ -1,0 +1,8 @@
+" Enable powerline symbols in the statusline.
+let g:airline_powerline_fonts=1
+" Clear search highlights after exiting search mode.
+let g:spf13_clear_search_highlight = 1
+
+" Auto changing current directory on buffer open breaks vim-fugitive's :Gdiff
+" command
+let g:spf13_no_autochdir = 1
